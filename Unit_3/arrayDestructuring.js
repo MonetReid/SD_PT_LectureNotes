@@ -85,3 +85,77 @@ const persons = [
   console.log("Persons Array: ", persons); // Includes Anna object in array
 
   console.log("Copied Persons Array: ", copiedPersons); // Copy does not include Anna, created before anna was added.
+
+  // * Variables within Memory
+  // First assignment/ original assignment 
+let x = 10; 
+let y = "abc";
+let z = null;
+
+// Reassign to another variable 
+let a = x;
+console.log(a); // 10
+let b = y;
+console.log(b); // abc
+
+// Reassign a and b
+a = 5;
+b = "def"; 
+
+console.log(x, y, a, b); // 10, abc, 5, def
+
+
+// ----------------------------------
+
+let arr = [];
+arr.push(1); // .push adds to the end or array / unshift could add to front? 
+console.log(`arr : ${arr}`)
+
+let reference = [1];
+let refCopy = reference;
+console.log(`refCopy: ${refCopy}`);
+
+reference.push(2); // both reference & refCopy will have the 2 added
+console.log(reference, refCopy); // [1,2] [1,2]
+
+// Look up what the heck is happening with push
+refCopy.push(5); 
+console.log(reference, refCopy); // What I HAD expected: [1,2] [1,2,3] // What I got: [1,2,5] [1, 2, 5]
+
+//------------------------------------------------
+//? Rest Syntax
+/* 
+  We can use the spread operator syntax, referred to as 'rest' syntax when working with array destructuring, to package up the REST of the values in the referenced array, and return them as their own array.
+
+- Looks exactly like spread syntax:
+- Spread -> "expands" an array
+- Rest -> "condenses an array"
+*/
+
+const fullNameAgain = [
+  "Jane",
+  "Doe",
+  "Mrs.",
+  {
+    month: 03,
+    date: 22,
+    year: 1973,
+  },
+  2,
+  "test",
+  "4",
+  true,
+  false,
+];
+
+let janesName = fullNameAgain[0];
+//console.log(janesName); // Jane
+
+// Using both array destructuring and rest: 
+let [newFirstName, newLastName,  ...otherInfo] = fullNameAgain
+console.log(`newFirstName: ${newFirstName}` ) // Jane
+console.log(`newLastName: ${newLastName}` ); // Doe
+console.log(`otherInfor: ${otherInfo}`); // [object Object],2,test,4,true,false
+console.log(`newInfo: ${otherInfo}`)
+
+
