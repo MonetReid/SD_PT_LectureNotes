@@ -1,0 +1,96 @@
+/* 
+? Promises
+    Is an object that may produce a singular value in the future.
+    A promise allows us to "wait" for our results (regardless if we get a positive response or a negative rejection). 
+    
+    3 States:
+    -Pending, ... in the process of getting the result.
+    -Fulfilled, ... yay we successfully got the result.
+    -Rejected, ... boo we were not able to get the result.
+
+    - Always returns an object { }
+
+    - Promises take in two parameters: 
+        - Resolve
+        - Reject
+
+    ?Great Resources:
+    https://www.w3schools.com/js/js_promise.asp
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+    
+*/
+
+// Mock/Faux Internet send
+
+// function getData() {
+//     setTimeout(() => {
+//         return "Here's some faux data!"
+//     }, 3000)
+
+// }
+
+// let data = getData(); // The value comes late by three seconds (3000)
+// console.log(data); // We get an undefined because the information is compiled
+
+function getData(cb) {
+    setTimeout(() => {
+        cb("some data to hopefully be delivered")
+    },3000);
+}
+
+getData(data => console.log(data));
+
+console.log("Wow the compiler runs fast!");
+
+
+/* 
+    How we can make out program wait for data instead of giving us undefined results:
+    * A promise is an object that may produce a singular value in the future. 
+    - Resolved : If we obtain our data, we can resolve and use it. 
+    - Rejected : If we get nothing or an error, we can handle that with reject.
+*/
+
+function returnData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(true) {
+                resolve("Some data from resolved promise")
+            } else {
+                reject("This is a rejection, promise failed.")
+            }
+        })
+    })
+}
+
+//console.log(returnData()); //Promise {<pending>}
+
+/* 
+? Resolvers
+    - When returned, the returnData() func. will return/give a Promise instead of a given string.
+    - Chaining with a resolver
+        - Keywords: 
+            -.then()
+                If success "then" do this
+                Can be chained together, do multiple things
+            -.catch()
+                If error/rejection
+        - Take in a callback function (thick arrow)
+        - * only put the semicolon (;) AFTER the LAST resolver
+        ex: promiseResults.then().then().catch();
+*/
+
+// call the returnData() function
+returnData()
+    .then(data => console.log("From resolved response: ", data))
+    .then(() => {
+        let x =10;
+        let y = 1-;
+        console.log(x*y);
+    })
+    .then(() => {
+        console.log("Heh, I could do this alll day");
+    })
+    .catch(function (err) {
+        console.error(err)
+    });
