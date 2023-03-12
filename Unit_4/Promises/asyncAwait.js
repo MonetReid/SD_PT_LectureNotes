@@ -41,3 +41,16 @@ async function getName() {
 // .then(): a method that attaches a callback function for the resolution of the promise
 getName().then(data => console.log(data));
 
+/* 
+?  Await 
+    - Tells JS that a promise is being returned and to wait on that result.
+*/
+
+async function extraData() {
+    // returnData() is a function from promises.js
+   // let info = returnData(); // ran so quickly it printed/returned [object promise]
+
+    return `${info} stored in some cloud... or API`
+}
+
+extraData().then((data) => console.log("Line 51 return of a AsyncAwait.js:", data));

@@ -85,7 +85,7 @@ returnData()
     .then(data => console.log("From resolved response: ", data))
     .then(() => {
         let x =10;
-        let y = 1-;
+        let y = 1;
         console.log(x*y);
     })
     .then(() => {
@@ -94,3 +94,32 @@ returnData()
     .catch(function (err) {
         console.error(err)
     });
+
+
+    /* 
+    ? The Process: 
+
+    Create a new Promise
+        - resolve / reject parameters of a callback function
+    setTimout is acting as a "waiting" process for a resource/data
+    resolve() or reject() said Promise
+    -^After that when returned we got a promise and not a string
+    - Needed to use resolvers (.then) /(.catch) with callbacks to extrapolate(get) the info from that promise.
+    
+    */
+
+    /* 
+    ? Fetch
+    - Before fetch(), we would have to use an httpRequest through the above noted system^
+
+    - Is an API
+    - a global method that requires 1 argument: 
+        - The location of data (URL) we are trying to obtain
+    - Handles both the request and the response
+    - Returns a promise
+        - Allow us to access our resolvers
+        - Resolvers = okay got the thing(or didn't), hey code now perform next action. 
+
+    
+    
+    */
