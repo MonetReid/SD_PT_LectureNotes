@@ -25,3 +25,5 @@ After clicking collections, we can create a new collection with the "+", our col
   To set methods in Postman: 
     - In the top left of the request, the drop down in front of the URL needs to be changed to the method matching our route.
     - GET / POST / PUT / DELETE
+
+    

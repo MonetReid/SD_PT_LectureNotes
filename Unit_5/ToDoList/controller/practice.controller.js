@@ -35,3 +35,21 @@ router.post("/greeting"), (req, res) => {
     res.status(200).send('Good Afternoon!');
 }
 
+// Goal: Write a route that will pull data from JSON
+// http:/localhost:4000/practice/json
+router.post('/json', (request, response) => {
+    // this console will be printed in my vsc terminal thats running the server.
+    console.log(request.body);
+
+    const {name} = request.body; // destructuring
+    response.status(200).send(`Hello there, ${name}`)
+})
+
+// Create a "wild card" route if things go wrong to catch any bad routing
+router.get("*", (req, res) => {
+    /* 
+        - "*": accounts for a "wild card" or anything that hasn't been defined.
+        - Provide a clean response back to the user.
+    */
+   res.status(404).send(`<img src="https://http.cat/404" alt="status code 404"/>`)
+})
