@@ -47,3 +47,12 @@ In our `app.js` we need to have this line of code:
 app.use(express.json());
 ```
 This provides us access JSON files throughout our routes.
+
+
+## MVC
+- Stands for Model View Controller
+- Architecture pattern that helps our Separation of Concerns
+- View: browser, Postman, etc.
+  - Application that interface with the server.
+- Controller: Part of the server application which handles logic.(How we build our logic within the server, we code and create what routes can be used and what they do.)
+- Model: Database schematic.

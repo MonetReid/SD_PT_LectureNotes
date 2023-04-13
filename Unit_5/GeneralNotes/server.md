@@ -76,6 +76,16 @@ https://github.com/burlingtoncodeacademy-students/PT_SD_January23_LectureNotes/b
 
 https://github.com/burlingtoncodeacademy-students/PT_SD_January23_LectureNotes/blob/main/Unit_5/GeneralNotes/assets/API.png
 
+## MVC
+
+- Stands for Model View Controller
+- Architecture pattern(structure in which they are written/coded) that helps our Separation of Concerns
+- Model: Database schematic, the blueprint for our data (we dictate what created data looks like/it's datatype)
+- View: browser, Postman, etc. (what the users see)
+  - Application that interface with the server.
+- Controller: Part of the server application which handles logic. (How we build our logic within the server, we code and create what routes can be used and what they do.)
+
+
 ### Visual Examples:
 
 ![Example 1](./assets/rest-api-model.png)
